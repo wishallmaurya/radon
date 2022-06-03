@@ -1,22 +1,48 @@
-const express = require('express');
+const welcome= require('../logger/logger')
 const myHelper = require('../util/helper')
+const formating= require('../validator/formatter')
+const express = require('express');
 const underscore = require('underscore')
-
 const router = express.Router();
 
+
+// router.get('/welcome',function (req, res){
+//     come.welcome()
+// } )
+
 router.get('/test-me', function (req, res) {
+
+    welcome.welcome()
+
     myHelper.printDate()
-    myHelper.getCurrentMonth()
-    myHelper.getCohortData()
+    myHelper.printMonth()
+    myHelper.getBatchInfo()
+
+
+
+    
+
     let firstElement = underscore.first(['Sabiha','Akash','Pritesh'])
     console.log('The first element received from underscope function is '+firstElement)
     res.send('My first ever api!')
 });
 
+router.get('/fm', function (req, res) {
+
+     
+    formating.trimm()
+    formating.changetoLowerCase()
+    formating.changetoUpperCase()
+})
+
 router.get('/hello', function (req, res) {
    
     res.send('Hello there!')
+    months =["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    console.log(_.chunk([1, 2, 3, 4, 5, 6], 2));
 });
+
+
 
 router.get('/candidates', function(req, res){
     console.log('Query paramters for this request are '+JSON.stringify(req.query))
