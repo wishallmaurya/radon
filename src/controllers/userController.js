@@ -11,7 +11,7 @@ const createUser = async function (abcd, xyz) {
   xyz.send({ msg: savedData });
 };
 
-const loginUser = async function (req, res) {
+const loginUser = async function (req, res) {   
   let userName = req.body.emailId;
   let password = req.body.password;
 
@@ -32,11 +32,11 @@ const loginUser = async function (req, res) {
     {
       userId: user._id.toString(),
       batch: "radon",
-      organisation: "FunctionUp",
+      organisation: "FunctionUp"
     },
     "functionup-radon"
   );
-  //res.setHeader("x-auth-token", token);
+  res.setHeader("x-auth-token", token);
   res.send({ status: true, data: token });
 };
 
@@ -49,7 +49,7 @@ const getUserData = async function (req, res) {
 
   res.send({ status: true, data: userDetails });
 };
-
+  
 const updateUser = async function (req, res) {
   let userId = req.params.userId;
   let user = await userModel.findById(userId);
