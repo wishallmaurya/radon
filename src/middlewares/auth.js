@@ -21,4 +21,4 @@ const validateToken = function(req, res, next) {
     next()
 }
 
-module.exports.validateToken = validateToken
+module.exports.validateToken = validateToken //exporting
