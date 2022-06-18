@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const CowinController= require("../controllers/cowinController")
+const meme= require("../controllers/meme.js")
 
 
 
@@ -19,8 +20,11 @@ router.get("/cowin/getByPin", CowinController.getByPin)
 
 router.post("/cowin/getOtp", CowinController.getOtp)
 
-// WRITE A GET API TO GET THE LIST OF ALL THE "vaccination sessions by district id" for any given district id and for any given date
+//2>>>......meme
 
+router.get("/getmemeId", meme.getmemeId)
+
+router.post("/postmeme", meme.postmeme)
 
 
 module.exports = router;
